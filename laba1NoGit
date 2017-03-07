@@ -1,0 +1,40 @@
+#include <string>
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main (){
+	setlocale(LC_ALL,"rus");
+	int n=0,m=0;
+	string buff_1;
+	string buff_2;
+	ifstream file_1("C:\\Users\\elmez\\Desktop\\TIM_1\\TIMfile\\file_1.txt");
+	ifstream file_2("C:\\Users\\elmez\\Desktop\\TIM_1\\TIMfile\\file_2.txt");
+	ofstream file_3("C:\\Users\\elmez\\Desktop\\TIM_1\\TIMfile\\file_3.txt");
+	while(getline(file_1,buff_1)){
+		n++;
+	}
+	file_1.clear();
+	file_1.seekg(0, ios_base::beg);
+	int r=4;
+	string *mt=new string [n];
+	string *pt=new string [n];
+	for(int k=0;k<n;k++){
+			file_1>>mt[k];
+		for (int i=0;i<n;i++){
+				file_2>>pt[i];
+				while(r%4==0){
+					if(mt[k]==pt[i]){
+						cout<<mt[k]<<"=="<<pt[i];
+						break;
+					}else{
+						cout<<mt[k]<<"!="<<pt[i]<<endl;
+						break;	
+					}			
+			
+				}	
+			}
+		}
+	system("pause");
+	}
